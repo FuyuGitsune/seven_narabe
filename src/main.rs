@@ -3,6 +3,7 @@ use owo_colors::OwoColorize;
 use rand::seq::SliceRandom;
 
 fn main() {
+    let mut break_flag = 0;
     let mut win_num = 0;
     let mut lose_num = 0;
 
@@ -13,6 +14,7 @@ fn main() {
     lb();
     if game_main(){
         win_num += 1;
+        break_flag = 1;
     }else{
         lose_num += 1;
     }
@@ -29,14 +31,21 @@ fn main() {
             lb();
             if game_main(){
                 win_num += 1;
+                break_flag += 1;
             }else{
                 lose_num += 1;
+                break_flag = 0;
             }
             lb();
             println!(" -----result-----");
             println!("     win  : {}", win_num);
             println!("     lose : {}", lose_num);
             lb();
+            if break_flag == 2{
+                println!("2連勝成功!おめでとうございます [f-2024dk_fygtn] ");
+                lb();
+                break_flag = 0;
+            }
         }else if retry == "n" || retry == "N"{
             break;
         }
