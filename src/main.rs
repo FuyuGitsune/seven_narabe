@@ -148,28 +148,7 @@ fn game_main()->bool{
     let mut winner = "";
     
     draw_stage(stage.clone(), &pl_pass, &c1_pass, &c2_pass, &c3_pass, pl_c.len(), c1_c.len(), c2_c.len(), c3_c.len(), &pl_save, &c1_save, &c2_save, &c3_save);
-    println!("-------------------info-------------------");
-    if pl_save{
-        println!("   player : Survival, pass = {}, {} left.", pl_pass, pl_c.len());
-    }else{
-        println!("   player : dropout");
-    }
-    if c1_save{
-        println!("computer1 : Survival, pass = {}, {} left.", c1_pass, c1_c.len());
-    }else{
-        println!("computer1 : dropout");
-    }
-    if c2_save{
-        println!("computer2 : Survival, pass = {}, {} left.", c2_pass, c2_c.len());
-    }else{
-        println!("computer2 : dropout");
-    }
-    if c3_save{
-        println!("computer3 : Survival, pass = {}, {} left.", c3_pass, c3_c.len());
-    }else{
-        println!("computer3 : dropout");
-    }
-    lb();
+
 
 
     //カード配り終了か？
@@ -177,28 +156,7 @@ fn game_main()->bool{
 
         if turn == 0{
             draw_stage(stage.clone(), &pl_pass, &c1_pass, &c2_pass, &c3_pass, pl_c.len(), c1_c.len(), c2_c.len(), c3_c.len(), &pl_save, &c1_save, &c2_save, &c3_save);
-            println!("-------------------info-------------------");
-            if pl_save{
-                println!("   player : Survival, pass = {}, {} left.", pl_pass, pl_c.len());
-            }else{
-                println!("   player : dropout");
-            }
-            if c1_save{
-                println!("computer1 : Survival, pass = {}, {} left.", c1_pass, c1_c.len());
-            }else{
-                println!("computer1 : dropout");
-            }
-            if c2_save{
-                println!("computer2 : Survival, pass = {}, {} left.", c2_pass, c2_c.len());
-            }else{
-                println!("computer2 : dropout");
-            }
-            if c3_save{
-                println!("computer3 : Survival, pass = {}, {} left.", c3_pass, c3_c.len());
-            }else{
-                println!("computer3 : dropout");
-            }
-            lb();
+            
             if pl_save{//
                 pl_r = player_move(pl_c.clone(), pl_pass, stage.clone());
                 if pl_r == 200{
@@ -354,30 +312,8 @@ fn game_main()->bool{
     }
     
     draw_stage(stage.clone(), &pl_pass, &c1_pass, &c2_pass, &c3_pass, pl_c.len(), c1_c.len(), c2_c.len(), c3_c.len(), &pl_save, &c1_save, &c2_save, &c3_save);
-    println!("-------------------info-------------------");
-    if pl_save{
-        println!("   player : Survival, pass = {}, {} left.", pl_pass, pl_c.len());
-    }else{
-        println!("   player : dropout");
-    }
-    if c1_save{
-        println!("computer1 : Survival, pass = {}, {} left.", c1_pass, c1_c.len());
-    }else{
-        println!("computer1 : dropout");
-    }
-    if c2_save{
-        println!("computer2 : Survival, pass = {}, {} left.", c2_pass, c2_c.len());
-    }else{
-        println!("computer2 : dropout");
-    }
-    if c3_save{
-        println!("computer3 : Survival, pass = {}, {} left.", c3_pass, c3_c.len());
-    }else{
-        println!("computer3 : dropout");
-    }
-    lb();
+    
     println!("Game set!! winner is -> {}", winner);
-    lb();
     winner == "player"
 }
 
@@ -415,26 +351,26 @@ fn draw_stage(stage :Vec<i32>, pl_pass :&i32, c1_pass :&i32, c2_pass :&i32, c3_p
     }
 
 
-    println!("{}-------------------info-------------------", "   A 2 3 4 5 6 7 8 9 T J Q K  ".black().on_white());
+    println!("{}    -------------------info-------------------", "   A 2 3 4 5 6 7 8 9 T J Q K  ".black().on_white());
     if *pl_save{
-        println!("{}{}{}   player : Survival, pass = {}, {} left.", " ".red().on_white(), d.red().on_white(), " ".red().on_white(), pl_pass, pl_cl);
+        println!("{}{}{}       player : Survival, pass = {}, {} left.", " ".red().on_white(), d.red().on_white(), " ".red().on_white(), pl_pass, pl_cl);
     }else{
-        println!("{}{}{}   player : dropout.", " ".red().on_white(), d.red().on_white(), " ".red().on_white());
+        println!("{}{}{}       player : dropout.", " ".red().on_white(), d.red().on_white(), " ".red().on_white());
     }
     if *c1_save{
-        println!("{}{}{}computer1 : Survival, pass = {}, {} left.", " ".green().on_white(), c.green().on_white(), " ".green().on_white(), c1_pass, c1_cl);
+        println!("{}{}{}    computer1 : Survival, pass = {}, {} left.", " ".green().on_white(), c.green().on_white(), " ".green().on_white(), c1_pass, c1_cl);
     }else{
-        println!("{}{}{}computer1 : dropout.", " ".green().on_white(), c.green().on_white(), " ".green().on_white());
+        println!("{}{}{}    computer1 : dropout.", " ".green().on_white(), c.green().on_white(), " ".green().on_white());
     }
     if *c2_save{
-        println!("{}{}{}computer2 : Survival, pass = {}, {} left.", " ".purple().on_white(), h.purple().on_white(), " ".purple().on_white(), c2_pass, c2_cl);
+        println!("{}{}{}    computer2 : Survival, pass = {}, {} left.", " ".purple().on_white(), h.purple().on_white(), " ".purple().on_white(), c2_pass, c2_cl);
     }else{
-        println!("{}{}{}computer2 : dropout.", " ".purple().on_white(), h.purple().on_white(), " ".purple().on_white());
+        println!("{}{}{}    computer2 : dropout.", " ".purple().on_white(), h.purple().on_white(), " ".purple().on_white());
     }
     if *c3_save{
-        println!("{}{}{}computer3 : Survival, pass = {}, {} left.", " ".blue().on_white(), s.blue().on_white(), " ".blue().on_white(), c3_pass, c3_cl);
+        println!("{}{}{}    computer3 : Survival, pass = {}, {} left.", " ".blue().on_white(), s.blue().on_white(), " ".blue().on_white(), c3_pass, c3_cl);
     }else{
-        println!("{}{}{}computer3 : dropout.", " ".blue().on_white(), s.blue().on_white(), " ".blue().on_white());
+        println!("{}{}{}    computer3 : dropout.", " ".blue().on_white(), s.blue().on_white(), " ".blue().on_white());
     }
     println!(" ");
 }
