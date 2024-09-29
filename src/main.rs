@@ -27,9 +27,9 @@ fn main() {
     lb();
 
     loop{
-        println!("もう一度しますか？Y/N");
+        println!("もう一度しますか？Y(1)/N(0)");
         let retry = input_str();
-        if retry == "y" || retry == "Y"{
+        if retry == "y" || retry == "Y" || retry == "1"{
             lb();
             if game_main(){
                 win_num += 1;
@@ -53,7 +53,7 @@ fn main() {
                 lb();
                 break_flag_p = 0;
             }
-        }else if retry == "n" || retry == "N"{
+        }else if retry == "n" || retry == "N" || retry == "0"{
             break;
         }
     }
