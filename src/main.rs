@@ -614,7 +614,7 @@ fn player_move(pl_c :Vec<i32>, pl_pass :i32, stage :Vec<i32>)->i32{
         }
         show.push_str(" | ");
     }
-    println!("あなたが持っているカードはこれです。 -> {}", show);
+    println!("Your card -> {}", show);
     lb();
     //comp_num -> アカウント、comp_c -> カード（ベクター）、comp_pass -> pass残り
     //returnは0~51の時はそれ。100ならパス。200なら脱落。
