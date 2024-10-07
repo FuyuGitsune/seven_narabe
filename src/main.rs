@@ -7,11 +7,15 @@ fn main() {
     let mut break_flag_p = 0;
     let mut win_num = 0;
     let mut lose_num = 0;
+    let mut lock = false;
+    let  lock_num = "27182818";
 
     println!("----------7並べ(vs computer)----------");
     lb();
     println!("--Get ready?（ENTERで続行）--");
-    input_str();
+    if input_str() == "lock"{
+        lock = true
+    }
     lb();
     if game_main(){
         win_num += 1;
@@ -54,7 +58,29 @@ fn main() {
                 break_flag_p = 0;
             }
         }else if retry == "n" || retry == "N" || retry == "0"{
-            break;
+            if lock{
+                println!("プログラムの終了はパスワードによって保護されています。パスワードを入力してください。");
+                if input_str() == lock_num{
+                    println!("認証されました。終了します。");
+                    break;
+                }else{
+                    println!("パスワードが間違っています。");
+                }
+            }else{
+                break;
+            }
+        }else if retry == "L" || retry == "l" || retry == "lock" || retry == "Lock" || retry == "5"{
+            println!("この操作はパスワード認証が必要です。");
+            if input_str() == lock_num{
+                lock = !lock;
+                if lock{
+                    println!("終了無許可状態に変更");
+                }else{
+                    println!("終了無許可状態を解除");
+                }
+            }else{
+                println!("パスワードが間違っています。");
+            }
         }
     }
 }
