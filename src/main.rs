@@ -13,8 +13,9 @@ fn main() {
     println!("----------7並べ(vs computer)----------");
     lb();
     println!("--Get ready?（ENTERで続行）--");
-    if input_str() == "lock"{
-        lock = true
+    let f_lock = input_str();
+    if f_lock == "5" || f_lock == "l" || f_lock == "L" || f_lock == "lock"{
+        lock = true;
     }
     lb();
     if game_main(){
@@ -22,7 +23,7 @@ fn main() {
         break_flag = 0;
     }else{
         lose_num += 1;
-        break_flag += 1
+        break_flag += 1;
     }
     lb();
     println!(" -----result-----");
@@ -53,7 +54,7 @@ fn main() {
             println!("     lose : {}", lose_num);
             lb();
             if break_flag_p == 1{
-                println!("クリア条件達成!おめでとうございます [f-2024dk_fygtn] ");
+                println!("クリア条件達成!おめでとうございます [k_sk-shkks2024-fgit] ");
                 lb();
                 break_flag_p = 0;
             }
@@ -110,6 +111,7 @@ fn lb(){
     println!(" ");
 }
 
+#[allow(unused_assignments)]
 fn game_main()->bool{
     //準備開始
 
@@ -566,6 +568,7 @@ fn computer_move(comp_c :Vec<i32>, comp_pass :i32, stage :Vec<i32>)->i32{
     }
 }
 
+#[allow(unused_assignments)]
 fn player_move(pl_c :Vec<i32>, pl_pass :i32, stage :Vec<i32>)->i32{
     let mut show = String::from("| ");
     for i in pl_c.clone(){
@@ -663,11 +666,11 @@ fn player_move(pl_c :Vec<i32>, pl_pass :i32, stage :Vec<i32>)->i32{
     //自分が出せるカードが分かった。
     if pl_c_p.is_empty(){
         if pl_pass == 0{
-            println!("貴方には脱落しか方法はありません。あきらめてください。(ENTERで続行)");
+            println!("貴方には脱落しか方法はありません。(ENTERで続行)");
             input_str();
             return 200;
         }
-        println!("貴方にはパスという手段しかありません。あきらめてください。(ENTERで続行)");
+        println!("貴方にはパスという手段しかありません。(ENTERで続行)");
         input_str();
         return 100;
     }
