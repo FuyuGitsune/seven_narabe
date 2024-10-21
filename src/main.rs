@@ -213,7 +213,6 @@ fn game_main()->bool{
                 println!("player -> Already dropped out.");
             }
             turn = 1;
-            lb();
         }else if turn == 1{
             if c1_save{
                 c1_r = computer_move(c1_c.clone(), c1_pass, stage.clone());
