@@ -385,9 +385,9 @@ fn draw_stage(stage :Vec<i32>, pl_pass :&i32, c1_pass :&i32, c2_pass :&i32, c3_p
         println!("{}{}{}       player : dropout.", " ".red().on_white(), d.red().on_white(), " ".red().on_white());
     }
     if *c1_save{
-        println!("{}{}{}    computer1 : Survival, pass = {}, {} left.", " ".green().on_white(), c.green().on_white(), " ".green().on_white(), c1_pass, c1_cl);
+        println!("{}{}{}    computer1 : Survival, pass = {}, {} left.", " ".cyan().on_white(), c.cyan().on_white(), " ".cyan().on_white(), c1_pass, c1_cl);
     }else{
-        println!("{}{}{}    computer1 : dropout.", " ".green().on_white(), c.green().on_white(), " ".green().on_white());
+        println!("{}{}{}    computer1 : dropout.", " ".cyan().on_white(), c.cyan().on_white(), " ".cyan().on_white());
     }
     if *c2_save{
         println!("{}{}{}    computer2 : Survival, pass = {}, {} left.", " ".purple().on_white(), h.purple().on_white(), " ".purple().on_white(), c2_pass, c2_cl);
