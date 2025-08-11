@@ -5,7 +5,7 @@ use rand::seq::SliceRandom;
 fn main() {
     let mut break_flag = 5;
     let mut break_flag_p = 0;
-    let mut win_num = 1;
+    let mut win_num = 0;
     let mut lose_num = 0;
     let mut lock = false;
     let  lock_num = "27182818";
@@ -27,8 +27,8 @@ fn main() {
     }
     lb();
     println!(" ------result------");
-    println!("     win  : {}", win_num);
-    println!("     lose : {}", lose_num);
+    println!("     win  : {win_num}");
+    println!("     lose : {lose_num}");
     println!("     rate : {}", win_num*100);
     lb();
 
