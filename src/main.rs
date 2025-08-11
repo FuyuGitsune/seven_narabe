@@ -52,9 +52,9 @@ fn main() {
             lb();
             println!(" ------result------");
             let win_rate:f64 = (win_num as f64 / (win_num as f64 + lose_num as f64) * 1000.0).round() / 10.0;
-            println!("     win  : {}", win_num);
-            println!("     lose : {}", lose_num);
-            println!("     rate : {}", win_rate);
+            println!("     win  : {win_num}");
+            println!("     lose : {lose_num}");
+            println!("     rate : {win_rate}");
             lb();
             if break_flag_p == 1{
                 println!("任意の連続5戦中2回勝利で表示されるメッセージです。おめでとう。");
@@ -107,7 +107,7 @@ fn input_int()->f64{
 fn input_str()->String{
     let mut a = String::new();
     stdin().read_line(&mut a).unwrap();
-    return a.trim().parse().unwrap();
+    a.trim().parse().unwrap()
 }
 
 fn lb(){
@@ -343,7 +343,7 @@ fn game_main()->bool{
     
     draw_stage(stage.clone(), &pl_pass, &c1_pass, &c2_pass, &c3_pass, pl_c.len(), c1_c.len(), c2_c.len(), c3_c.len(), &pl_save, &c1_save, &c2_save, &c3_save);
     
-    println!("Game set!! winner is -> {}", winner);
+    println!("Game set!! winner is -> {winner}");
     winner == "player"
 }
 
@@ -599,7 +599,7 @@ fn player_move(pl_c :Vec<i32>, pl_pass :i32, stage :Vec<i32>)->i32{
         }
         show.push_str(" | ");
     }
-    println!("Your card -> {}", show);
+    println!("Your card -> {show}");
     lb();
     //comp_num -> アカウント、comp_c -> カード（ベクター）、comp_pass -> pass残り
     //returnは0~51の時はそれ。100ならパス。200なら脱落。
@@ -689,9 +689,9 @@ fn player_move(pl_c :Vec<i32>, pl_pass :i32, stage :Vec<i32>)->i32{
                 println!(" {} : S.{}", i, pl_c_p[i] % 13 + 1);
             }
         }else if pl_pass == 0{
-                println!(" {} : 脱落", i);
+                println!(" {i} : 脱落");
         }else{
-                println!(" {} : パス", i);
+                println!(" {i} : パス");
         }
     }
 
