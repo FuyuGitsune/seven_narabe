@@ -5,7 +5,7 @@ use rand::seq::SliceRandom;
 fn main() {
     let mut break_flag = 5;
     let mut break_flag_p = 0;
-    let mut win_num = 0;
+    let mut win_num = 1;
     let mut lose_num = 0;
     let mut lock = false;
     let  lock_num = "27182818";
@@ -26,9 +26,10 @@ fn main() {
         break_flag += 1;
     }
     lb();
-    println!(" -----result-----");
+    println!(" ------result------");
     println!("     win  : {}", win_num);
     println!("     lose : {}", lose_num);
+    println!("     rate : {}", win_num*100);
     lb();
 
     loop{
@@ -49,12 +50,14 @@ fn main() {
                 break_flag += 1;
             }
             lb();
-            println!(" -----result-----");
+            println!(" ------result------");
+            let win_rate:f64 = (win_num as f64 / (win_num as f64 + lose_num as f64) * 1000.0).round() / 10.0;
             println!("     win  : {}", win_num);
             println!("     lose : {}", lose_num);
+            println!("     rate : {}", win_rate);
             lb();
             if break_flag_p == 1{
-                println!("クリア条件達成!おめでとうございます [k_sk-shkks2024-fgit] ");
+                println!("任意の連続5戦中2回勝利で表示されるメッセージです。おめでとう。");
                 lb();
                 break_flag_p = 0;
             }
